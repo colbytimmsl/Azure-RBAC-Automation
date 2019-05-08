@@ -1,8 +1,8 @@
 # Azure AD Role-Based Access Control Automation
 ## Purpose
-The purpose of the Azure AD Role-Based Access Control (RBAC) automation system is provide the ability to assign directory roles to groups, thereby applying the respective role to all members that belong to said group. As of now, Azure doesn’t provide this option, which can prove difficult to track each individual user’s roles.
+The purpose of the Azure AD Role-Based Access Control (RBAC) automation tool is provide the ability to assign directory roles to groups, thereby applying the respective role(s) to all members that belong to said group. As of now, Azure doesn’t provide this option, which can prove difficult to track each individual user’s roles.
 ## Objective
-Implement a RBAC automation system that adds assigned roles and removes roles from members of monitored groups automatically. 
+Implement a RBAC automation system that assigns and removes roles from members of monitored groups automatically. 
 ## Workflow Overview
 The workflow to assign roles to groups is as follows:
 1. Add emails to an email csv file that allows the added user to receive error and new role emails which specify the group, user, and the role that has recently been assigned.
@@ -45,8 +45,8 @@ b. Create a function step = Timer (optional - if you wish to have the Function a
  App Setting Name        | Value           |
 | ------------- |:-------------:|
 | Auth_UserName | Insert delegate user email here | 
-| Auth_UserSecret Insert delegate user password here | 
-| storageConnectionString Insert Azure Storage connection string here | 
+| Auth_UserSecret | Insert delegate user password here | 
+| storageConnectionString | Insert Azure Storage connection string here | 
 | RBAC_Automation:ClientId | Insert app client ID here | 
 | RBAC_Automation:Instance | https://login.microsoftonline.com/{0} | 
 | RBAC_Automation:MicrosoftGraphBaseEndpoint | https://graph.microsoft.com | 
@@ -70,18 +70,18 @@ If you have followed all the steps previously mentioned correctly, your group RB
 1. Navigate to the email-resources container in your Azure Storage account, click on the “EmailAccounts.csv” blob and then select Edit Blob.
 2. Each line of the “EmailAccounts.csv” blob contains the name and email address (separated by a comma, no spaces) of the individuals you wish to send error and new role emails to. The format of each line in the csv should follow the format below.
 	
-	Joe Smith,jsmith@company.ca
-	Jack Black,jblack@company.ca
-	Jason Newman,jnewman@company.ca
+	Joe Smith,jsmith@company.ca  
+	Jack Black,jblack@company.ca  
+	Jason Newman,jnewman@company.ca  
 
 3. Navigate to the group-roles container in your Azure Storage account, click on the “GroupRoles.csv” blob and then select Edit Blob.
 4. Each line of the “GroupRoles.csv” blob contains the group object id and role name (separated by a comma, no spaces) of the groups you wish to assign specific roles to. A sample csv is shown below. The “RoleTemplates.txt” contains all role template names that can be used in Azure AD.
 	
-	c271c25e-cd73-4173-8c5c-84234cda3a63,Privileged Authentication Administrator
-	162dae11-b340-4ea0-a915-4f717a555ad9,SharePoint Service Administrator
-	50c8f1fc-b0b6-4b34-8a66-26649c649841,Directory Synchronization Accounts
-	99de9d14-62bf-4402-bd3b-5600450dd99e,CRM Service Administrator
-	ee1b8849-cdf3-4e4d-ae74-4934433703d1,Conditional Access Administrator
+	c271c25e-cd73-4173-8c5c-84234cda3a63,Privileged Authentication Administrator  
+	162dae11-b340-4ea0-a915-4f717a555ad9,SharePoint Service Administrator  
+	50c8f1fc-b0b6-4b34-8a66-26649c649841,Directory Synchronization Accounts  
+	99de9d14-62bf-4402-bd3b-5600450dd99e,CRM Service Administrator  
+	ee1b8849-cdf3-4e4d-ae74-4934433703d1,Conditional Access Administrator  
 
 ![Image 9](https://github.com/colbytimmsl/Azure-RBAC-Automation/blob/master/RBAC_Automation/Resources/Images/9.png)
 
