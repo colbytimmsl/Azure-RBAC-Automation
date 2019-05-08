@@ -85,5 +85,5 @@ If you have followed all the steps previously mentioned correctly, your group RB
 
 ![Image 9](https://github.com/colbytimmsl/Azure-RBAC-Automation/blob/master/RBAC_Automation/Resources/Images/9.png)
 
-To retrieve the object id of a group, navigate to the group in Azure AD, and copy the object id from the group overview page.
+To retrieve the object id of a group, navigate to the group in Azure AD, and copy the object id from the group overview page.  
 5. If you have correctly added the group roles and email addresses, you should receive an email (depending on when the function app triggers) that shows the latest roles that have been applied to each user belonging to each role-assigned group.
