@@ -24,10 +24,10 @@ iv. User.ReadBasic.All
 ![Image 4](https://github.com/colbytimmsl/Azure-RBAC-Automation/blob/master/RBAC_Automation/Resources/Images/4.png)
 6. Create a delegated user via Azure AD (or use an existing one) that will assign the roles to the users via the RBAC application. Note that this user should have at least the directory role of “Privileged role administrator” to be able to assign and remove directory roles.
 7. Create an Azure Storage, an Azure Function App, and a SendGrid add-on to your resource group.
-a. For the Azure Storage, once created, add 3 private blob containers with the following names (lowercase):
-i. “email-resources”
-ii. “general-resources”
-iii. “group-roles”
+a. For the Azure Storage, once created, add 3 private blob containers with the following names (lowercase):  
+i. “email-resources”  
+ii. “general-resources”  
+iii. “group-roles”  
 b. Create an Azure Storage table named: “groupRoles”  
 *NOTE*: These names can easily be adjusted in the source code.  
 c. For the Azure Function App, please make sure the following fields are selected when created:  
